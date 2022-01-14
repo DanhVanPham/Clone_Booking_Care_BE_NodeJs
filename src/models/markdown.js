@@ -10,6 +10,8 @@ module.exports = (sequelize, DataTypes) => {
     static associate(models) {
       MarkDown.belongsTo(models.User, {
         foreignKey: "doctorId",
+        targetKey: "id",
+        as: "genderData",
       });
     }
   }
@@ -24,7 +26,7 @@ module.exports = (sequelize, DataTypes) => {
     },
     {
       sequelize,
-      modelName: "MarkDown",
+      modelName: "Markdown",
     }
   );
   return MarkDown;

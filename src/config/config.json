@@ -1,28 +1,34 @@
-{
-  "development": {
-    "username": "root",
-    "password": null,
-    "database": "hoidanit",
-    "host": "127.0.0.1",
-    "dialect": "mysql",
-    "logging": false,
-    "query": {
-      "raw": true
-    },
-    "timezone": "+07:00"
-  },
-  "test": {
-    "username": "root",
-    "password": null,
-    "database": "database_test",
-    "host": "127.0.0.1",
-    "dialect": "mysql"
-  },
-  "production": {
-    "username": "root",
-    "password": null,
-    "database": "database_production",
-    "host": "127.0.0.1",
-    "dialect": "mysql"
-  }
-}
+// {
+//   "development": {
+//     "username": "kgehgnpmyfhlij",
+//     "password": "298e6c5553d617751cc8777b86feaa0598dd0548d76d3d753f51df5dd2466b87",
+//     "database": "de16nleg36j3ce",
+//     "host": "ec2-34-233-192-238.compute-1.amazonaws.com",
+//     "dialect": "postgres",
+//     "logging": false,
+//     "query": {
+//       "raw": true
+//     },
+//     "timezone": "+07:00",
+//     "dialectOptions": {
+//       "ssl": {
+//         "require": true,
+//         "rejectUnauthorized":false
+//       }
+//     }
+//   },
+//   "test": {
+//     "username": "root",
+//     "password": null,
+//     "database": "database_test",
+//     "host": "127.0.0.1",
+//     "dialect": "mysql"
+//   },
+//   "production": {
+//     "username": "root",
+//     "password": null,
+//     "database": "database_production",
+//     "host": "127.0.0.1",
+//     "dialect": "mysql"
+//   }
+// }

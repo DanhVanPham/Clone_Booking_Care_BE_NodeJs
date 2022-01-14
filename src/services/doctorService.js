@@ -117,12 +117,12 @@ let saveDetailInforDoctor = (inputData) => {
           errMessage: "Missing required parameter!",
         });
       } else {
-        let doctorDetail = await db.MarkDown.findOne({
+        let doctorDetail = await db.Markdown.findOne({
           where: { doctorId: inputData.doctorId },
           raw: false,
         });
         if (!doctorDetail) {
-          await db.MarkDown.create({
+          await db.Markdown.create({
             contentHTML: inputData.contentHTML,
             contentMarkdown: inputData.contentMarkdown,
             description: inputData.description,
@@ -190,7 +190,7 @@ let getDoctorById = (userId) => {
           },
           include: [
             {
-              model: db.MarkDown,
+              model: db.Markdown,
               as: "markDownData",
               attributes: ["description", "contentHTML", "contentMarkdown"],
             },
@@ -255,7 +255,7 @@ let bulkCreateSchedule = (data) => {
           let existing = await db.Schedule.findAll({
             where: {
               doctorId: schedule[0]["doctorId"],
-              date: schedule[0]["date"],
+              date: `` + schedule[0]["date"],
             },
             attributes: {
               exclude: ["id", "currentNumber", "createdAt", "updatedAt"],
@@ -413,7 +413,7 @@ let getProfileDoctorById = (doctorId) => {
           },
           include: [
             {
-              model: db.MarkDown,
+              model: db.Markdown,
               as: "markDownData",
               attributes: ["description"],
             },

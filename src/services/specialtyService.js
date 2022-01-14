@@ -18,7 +18,7 @@ let createNewSpecialty = (data) => {
           errMessage: "Missing required parameter!",
         });
       } else {
-        await db.specialties.create({
+        await db.Specialties.create({
           descriptionHTML: data.descriptionHTML,
           descriptionMarkdown: data.descriptionMarkdown,
           image: data.image,

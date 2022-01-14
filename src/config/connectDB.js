@@ -1,5 +1,5 @@
 const { Sequelize } = require("sequelize");
-
+require("dotenv").config();
 // // Option 1: Passing a connection URI
 // const sequelize = new Sequelize('sqlite::memory:') // Example for sqlite
 // const sequelize = new Sequelize('postgres://user:pass@example.com:5432/dbname') // Example for postgres
@@ -11,11 +11,26 @@ const { Sequelize } = require("sequelize");
 // });
 
 // Option 3: Passing parameters separately (other dialects)
-const sequelize = new Sequelize("hoidanit", "root", null, {
-  host: "localhost",
-  dialect: "mysql" /* one of 'mysql' | 'mariadb' | 'postgres' | 'mssql' */,
-  logging: false,
-});
+const sequelize = new Sequelize(
+  process.env.DB_DATABASE_NAME,
+  process.env.DB_USERNAME,
+  process.env.DB_PASSWORD,
+  {
+    host: process.env.DB_HOST,
+    dialect: "postgres" /* one of 'mysql' | 'mariadb' | 'postgres' | 'mssql' */,
+    logging: false,
+    query: {
+      raw: true,
+    },
+    timezone: "+07:00",
+    dialectOptions: {
+      ssl: {
+        require: true,
+        rejectUnauthorized: false,
+      },
+    },
+  }
+);
 
 let connectDB = async () => {
   try {
